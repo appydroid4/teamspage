@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Teams Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://statics.teams.cdn.office.net/sdk/v1.8.1/js/MicrosoftTeams.min.js"></script>
+  <script>
+    function openDialog() {
+      const url = 'https://artefactory.azurewebsites.net/home';
+      const dialog = new microsoftTeams.Dialog();
+      dialog.width = 800;
+      dialog.height = 600;
+      dialog.url = `https://teams.microsoft.com/l/dialog/${encodeURIComponent(url)}`;
+      dialog.show();
+    }
+  </script>
+</head>
+<body>
+  <h1>My Teams Tab</h1>
+  <button onclick="openDialog()">Open Dialog</button>
+</body>
+</html>
