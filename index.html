@@ -12,19 +12,18 @@
     function openDialog() {
 
       microsoftTeams.app.initialize();
-      microsoftTeams.app.openLink("https://artefactory.azurewebsites.net/home");
-console.log("112");
+console.log("initialize");
        function createLink() {
            var appId =  "6afa48ac-50d9-4f63-824d-1a8b05ca8ce7";
            var baseUrl =  "https://artefactory.azurewebsites.net/home";
            // Passing the values and encoding the url while implementing the deeplink from tab
            let url = "https://teams.microsoft.com/l/stage/"+appId+"/0?context={\"contentUrl\":\""+baseUrl+"/content\",\"websiteUrl\":\""+baseUrl+"/content\",\"name\":\"DemoStageView\"}";
-           alert("URL - " + url);
+          // alert("URL - " + url);
            microsoftTeams.app.openLink(url);
         };
-console.log("12");
+console.log("create link callback");
 createLink();
-console.log("123");
+console.log("create link response");
 
 
       // microsoftTeams.initialize();
