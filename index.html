@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>My Teams Tab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://res.cdn.office.net/teams-js/2.10.1/js/MicrosoftTeams.min.js"></script>
-  <script>
-    function openDialog() {
-      microsoftTeams.initialize();
-      const taskInfo = {
-        title: "Dialog title", // Set your title
-        url: 'https://www.hexawareimmersive.com/',
-        height: 1600,
-        width: 1800,
-        fallbackUrl: 'https://artefactory.azurewebsites.net/home'
-      };
+<html lang="en">
 
-      microsoftTeams.tasks.startTask(taskInfo , function (err, result) {
-        if (err) {
-          // handle error
-          console.error(err.message);
-        } else {
-          // handle result
-          console.log(result);
-        }
-      });
-    }
-  </script>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/msteams-16.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/custom.css"/>
+    <script
+          src="https://res.cdn.office.net/teams-js/2.0.0/js/MicrosoftTeams.min.js"
+          integrity="sha384-QtTBFeFlfRDZBfwHJHYQp7MdLJ2C3sfAEB1Qpy+YblvjavBye+q87TELpTnvlXw4"
+          crossorigin="anonymous">
+    </script>
+    <script>
+        microsoftTeams.app.initialize();
+        function createLink() {
+            var appId =  "6afa48ac-50d9-4f63-824d-1a8b05ca8ce7";
+            var baseUrl =  "https://artefactory.azurewebsites.net/home";
+            // Passing the values and encoding the url while implementing the deeplink from tab
+            let url = "https://teams.microsoft.com/l/stage/"+appId+"/0?context={\"contentUrl\":\""+baseUrl+"/content\",\"websiteUrl\":\""+baseUrl+"/content\",\"name\":\"DemoStageView\"}";
+            alert("URL - " + url);
+            microsoftTeams.app.openLink(url);
+         };
+    </script>
 </head>
-<body>
-  <h1>My Teams Tab</h1>
-  <button onclick="openDialog()">Open Dialog</button>
+
+<body class="theme-light">
+    <div class="surface">
+        <div class="panel">
+            <div>
+                <label for="tabChoice"></label>Click on the button to view the stage view from deeplink:
+                <button onClick="createLink()">Execute deeplink</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
