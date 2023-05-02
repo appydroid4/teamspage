@@ -6,12 +6,25 @@
   <script src="https://res.cdn.office.net/teams-js/2.10.1/js/MicrosoftTeams.min.js"></script>
   <script>
     function openDialog() {
-      const url = 'https://artefactory.azurewebsites.net/home';
-      const dialog = new microsoftTeams.Dialog();
-      dialog.width = 800;
-      dialog.height = 600;
-      dialog.url = `https://teams.microsoft.com/l/dialog/${encodeURIComponent(url)}`;
-      dialog.show();
+      microsoftTeams.initialize();
+
+      const taskInfo = {
+        title: "Dialog title", // Set your title
+        url: 'https://artefactory.azurewebsites.net/home',
+        height: 600,
+        width: 800,
+        fallbackUrl: 'https://artefactory.azurewebsites.net/home'
+      };
+
+      microsoftTeams.tasks.startTask(taskInfo, function (err, result) {
+        if (err) {
+          // handle error
+          console.error(err);
+        } else {
+          // handle result
+          console.log(result);
+        }
+      });
     }
   </script>
 </head>
