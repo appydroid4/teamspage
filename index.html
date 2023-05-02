@@ -12,6 +12,8 @@
     function openDialog() {
 
       microsoftTeams.app.initialize();
+      microsoftTeams.app.openLink(baseUrl);
+console.log("1");
        function createLink() {
            var appId =  "6afa48ac-50d9-4f63-824d-1a8b05ca8ce7";
            var baseUrl =  "https://artefactory.azurewebsites.net/home";
@@ -20,8 +22,9 @@
            alert("URL - " + url);
            microsoftTeams.app.openLink(url);
         };
-
-
+console.log("12");
+createLink();
+console.log("123");
 
 
       // microsoftTeams.initialize();
