@@ -12,6 +12,7 @@
     function openDialog() {
 console.log("initialize");
       microsoftTeams.app.initialize();
+      microsoftTeams.authentication.authenticate();
       console.log("initialize");
        function createLink() {
            var appId =  "6afa48ac-50d9-4f63-824d-1a8b05ca8ce7";
